@@ -1,0 +1,11 @@
+Fate's Gambit pages
+
+- Welcome/Landing page
+- sign in
+- sign up
+- dashboard
+- card collection
+- deck building
+- trading
+- gameplay
+
