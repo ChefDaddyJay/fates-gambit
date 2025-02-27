@@ -1,11 +1,20 @@
 export type Card = {
     id: string,
-    name: string
-    cardType: 'character' | 'event' | 'effect',
-    faction: 'seers' | 'bards' | 'heroes' | 'shadows',
+    name: string,
     image_url: string,
-    base_advancement?: number,
+    type: 'character' | 'event' | 'effect',
+    faction: 'seers' | 'bards' | 'heroes' | 'shadows',
+    cost: number,
+    power: number,
     abilities: string[]
+}
+
+export type CardEntry = {
+    ability: string,
+    abilityList: string[]
+    power: number,
+    type: string,
+    faction: string
 }
 
 export type Player = {

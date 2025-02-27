@@ -6,8 +6,9 @@ export function Navbar() {
         `}>
             <NavLink href="/dashboard" text="Home" />
             <NavLink href="/dashboard/collection" text="Collection" />
-            <NavLink href="/store/buy" text="Shop" />
-            <NavLink href="/store/trade" text="Trade" />
+            <NavLink href="/cards/buy" text="Shop" />
+            <NavLink href="/cards/trade" text="Trade" />
+            <NavLink href="/cards/create" text="Create" />
             <PlayButton />
         </div>
     );
