@@ -39,9 +39,9 @@ const processAbilities = (type?: string, input?: string):string[] => {
         input.toString().split(',').forEach((a:string) => output.push(a));
      } else {
         switch(type) {
-            case 'character':
-            case 'event': output.push('Gain 1 Fate Point'); break;
-            case 'effect': output.push('Target Character gains +1 Power'); break;
+            case 'Character':
+            case 'Event': output.push('Gain 1 Fate Point'); break;
+            case 'Effect': output.push('Target Character gains +1 Power'); break;
         }
      }
      return output;
