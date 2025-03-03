@@ -1,9 +1,9 @@
 export type Card = {
-    id: string,
+    id: number,
     name: string,
     image_url: string,
     type: 'Character' | 'Event' | 'Effect',
-    faction: 'Seers' | 'Bards' | 'Heroes' | 'Shadows',
+    faction: string,
     cost: number,
     power: number,
     abilities: string[]
@@ -15,6 +15,17 @@ export type CardEntry = {
     power: number,
     type: string,
     faction: string
+}
+
+export const EmptyCard:Card = {
+    id: 0,
+    name: "Empty",
+    image_url: "/default_hero.png",
+    type: 'Character',
+    faction: "Heroes",
+    cost: 0,
+    power: 0,
+    abilities: []
 }
 
 export type Player = {
@@ -38,22 +49,24 @@ export type Collection = {
     ]
 }
 
-export const factionBorder = (faction: string) => {
-    switch (faction) {
-        case 'Seers': return 'border-blue-700';
-        case 'Heroes': return 'border-orange-500';
-        case 'Bards': return 'border-green-500';
-        case 'Shadows': return 'border-purple-500';
-        default: return 'border-red-500';
+export const Factions: {
+    [key: string]: 
+    {border: string, text: string}
+} = {
+    Seers: {
+        border: "border-blue-700",
+        text: "text-blue-700"
+    },
+    Heroes: {
+        border: "border-orange-500",
+        text: "text-orange-700"
+    },
+    Bards: {
+        border: "border-green-700",
+        text: "text-green-700"
+    },
+    Shadows: {
+        border: "border-purple-700",
+        text: "text-purple-700"
     }
-}
-
-export const factionText = (faction: string) => {
-    switch (faction) {
-        case 'Seers': return 'text-blue-700';
-        case 'Heroes': return 'text-orange-500';
-        case 'Bards': return 'text-green-700';
-        case 'Shadows': return 'text-purple-500';
-        default: return 'text-red-500';
-    }
-}
+};
