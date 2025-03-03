@@ -1,7 +1,7 @@
 'use client';
 
 import { createCard, CardState } from "@/app/lib/actions";
-import { CardEntry, factionBorder } from "@/app/lib/definitions";
+import { CardEntry, Factions } from "@/app/lib/definitions";
 import { MouseEvent, ChangeEvent, useActionState, useState } from "react";
 import Image from "next/image";
 import { HiOutlineMinusCircle, HiOutlinePlus } from "react-icons/hi2";
@@ -73,7 +73,7 @@ export default function Form() {
         <div className="flex flex-col justify-evenly items-center bg-slate-100 border border-black p-2 shadow h-full w-1/4 mx-auto">
             <div className="w-40 h-40 pb-2 mx-auto flex justify-center items-center">
                 <Image src={`/default_${state.type}.png`} alt="default hero image" width={200} height={200}
-                    className={`border-4 rounded ${factionBorder(state.faction)}`} />
+                    className={`border-4 rounded ${Factions[state.faction].border}`} />
             </div>
             <div className="w-full flex flex-grow justify-center p-2 border-t-2 border-yellow-700">
                 <form action={formAction} id="new-card-form" name="new-card-form">
