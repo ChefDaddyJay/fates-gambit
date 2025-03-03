@@ -16,14 +16,10 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
     return `${pathname}?${params.toString()}`;
   }
 
-  // NOTE: Uncomment this code in Chapter 11
-
   const allPages = generatePagination(currentPage, totalPages);
 
   return (
     <>
-      {/*  NOTE: Uncomment this code in Chapter 11 */}
-
       <div className="inline-flex pt-2">
         <PaginationArrow
           direction="left"
@@ -32,9 +28,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
         />
 
         <div className="flex -space-x-px">
-          {allPages.map((page, index) => {
-            let position: 'first' | 'last' | 'single' | 'middle' | undefined;
-
+          {allPages.map((page) => {
             return (
               <PaginationNumber
                 key={page}
