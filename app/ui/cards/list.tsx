@@ -24,7 +24,7 @@ export default function CardList(
     return (
         <div className="flex flex-wrap content-start
             shadow-inner overflow-scroll bg-stone-950 rounded
-            p-auto  pt-2 w-full h-full">
+            p-auto w-full h-full">
             {cards.map((card, i) => (
                 /* Single Card Layout */
                 <div className={`w-full h-10 mt-1 mx-2 p-1 rounded-md text-slate-50
