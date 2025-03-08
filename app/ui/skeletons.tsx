@@ -1,5 +1,4 @@
 import { Card, EmptyCard } from "@/app/lib/definitions";
-import CardList from "@/app/ui/cards/list";
 import CardDetails from "@/app/ui/cards/details";
 
 export function CardListSkeleton() {
