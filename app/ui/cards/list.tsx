@@ -24,19 +24,21 @@ export default function CardList(
     return (
         <div className="flex flex-wrap content-start
             shadow-inner overflow-scroll bg-stone-950 rounded
-            p-auto w-full h-full">
+            p-auto w-full h-full
+            sm:items-stretch">
             {cards.map((card, i) => (
                 /* Single Card Layout */
                 <div className={`w-full h-10 mt-1 mx-2 p-1 rounded-md text-slate-50
                     flex content-start justify-start
                     ${(currentCard === card.id)? "bg-orange-800" : "bg-yellow-900"}
+                    sm:w-16 sm:h-28 sm:flex-col sm:items-center
                     hover:text-yellow-100 hover:shadow-xl hover:cursor-pointer`}
                     onClick={() => {
                         handleClick(card.id);
                     }}
                     id={card.id.toString()}
                     key={i}>
-                    <div className={`w-1/4 mx-auto flex rounded border-2 ${Factions[card.faction].border}`}>
+                    <div className={`w-8 h-8 sm:w-12 sm:h-12 mx-auto flex rounded border-2 ${Factions[card.faction].border}`}>
                         <Image src={card.image_url} alt="Card Image" width={40} height={40}
                             className={`w-full h-full`} />
                     </div>

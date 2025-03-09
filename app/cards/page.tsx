@@ -13,7 +13,8 @@ export default async function StorePage(props: {
     searchParams?: Promise<{
         query?: string,
         page?: string,
-        cardId?: string
+        cardId?: string,
+        items?: string
     }>
 }) {
     const searchParams = await props.searchParams;
@@ -25,13 +26,12 @@ export default async function StorePage(props: {
         || cards[0] 
         || EmptyCard;
     const totalPages = await fetchCardsPages(query) || 1;
-
     
     return (
         <div className="flex flex-grow justify-between p-2 
             bg-stone-200 shadow rounded h-full overflow-clip">
             <CardDetails card={currentCard} />
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col w-full pl-2">
                 <Search placeholder="Card name..."/>
                 <Suspense fallback={<CardListSkeleton />}>
                     <CardList cards={cards} currentCard={currentCard.id} />

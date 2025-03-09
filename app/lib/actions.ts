@@ -52,7 +52,6 @@ const capitalize = (str: string) => {
 }
 
 export async function createCard(prevState: CardState, formData: FormData) { 
-    console.log('create');
     const validatedFields = CreateCard.safeParse({
         name: formData.get('card-name'),
         image_url: formData.get('image_url'),

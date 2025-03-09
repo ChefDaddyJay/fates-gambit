@@ -22,7 +22,6 @@ export default function Form() {
     });
 
     const addAbility = () => {
-        console.log(state.ability);
         const temp = {...state};
         temp.abilityList.push(state.ability);
         temp.ability = '';
@@ -70,7 +69,9 @@ export default function Form() {
     }
     
     return (
-        <div className="flex flex-col justify-evenly items-center bg-slate-100 border border-black p-2 shadow h-full w-1/4 mx-auto">
+        <div className="flex flex-col justify-evenly items-center
+            bg-slate-100 border border-black p-2 shadow 
+            h-full w-max mx-auto">
             <div className="w-40 h-40 pb-2 mx-auto flex justify-center items-center">
                 <Image src={`/default_${state.type}.png`} alt="default hero image" width={200} height={200}
                     className={`border-4 rounded ${Factions[state.faction].border}`} />

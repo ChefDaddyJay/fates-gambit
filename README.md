@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project status
 
-## Getting Started
+03/09/2025 - / Shows a welcome page with sign in and sign up options. Neither have
+                been implemented as of yet.
+            /cards displays the full list of card in the database and allows the
+                user to search the list and select individual cards to view their
+                details.
+            /cards/create allows for the creation of new cards, which are entered
+                directly into the database.
+            All others are dummy pages for now
 
-First, run the development server:
+# **FATE'S GAMBIT**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Fate's Gambit** is an online trading card game in which players act as 
+*Weavers of Destiny* and compete in an attempt to complete their patterns first by 
+being the first to reach 100 *Fate Points*. Each player begins the game with 50 
+*Fate Points*. At the beginning of the game, each player draws 6 cards.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Turn Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+At the beginning of each turn but the first, the active player draws a card. They 
+then have the option to play cards from their hand by spending *Fate Points* or 
+*Advance* and end their turn. If the player has more than 6 cards in their hand at 
+the end of their turn, they must discard until they have only 6 remaining.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Advancement
 
-## Learn More
+At the end of each turn, the active player receives a number of *Fate Points* 
+equal to the combined power of all the Characters they control, adjusted for 
+any Events or Effects played previously.
 
-To learn more about Next.js, take a look at the following resources:
+## Card Types
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+There are 3 card types in **Fate's Gambit**: Characters, Events, and Effects.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Characters
 
-## Deploy on Vercel
+- Characters have a power level that represents the base number of *Fate Points*
+they award during Advancement. Players must have a Character on the field to earn
+*Fate Points*.
+- Character cards can only be played by the active player, prior to Advancing.
+- Some Characters have abilities that may prevent them from Advancing, if used.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Events
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Events can be played any time, during any turn.
+- Events typically occur only once and last for one turn.
+- Events can cause a number of things to happen, including:
+    -- Drawing a card
+    -- Gaining *Fate Points*
+    -- Causing an opponent to lose *Fate Points*
+
+### Effects
+
+- Effects, like Characters, can only be played by the active player.
+- Effects stay on the field and cause lasting changes, including:
+    -- Increasing or decreasing the power of a Character
+    -- Preventing Character Advancement
+    -- Draining *Fate Points*
+    -- Providing an alternate source of *Fate Points* to pay for card costs
+
+## Factions
+
+There are four Factions in **Fate's Gambit**: Bards, Heroes, Seers, and Shadows. 
+Cards within each Faction often synergize with each other to create more powerful 
+effects. For instance, Effect cards may target Characters from a specific Faction.

@@ -20,7 +20,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
 
   return (
     <>
-      <div className="inline-flex pt-2">
+      <div className="inline-flex pt-2 justify-center">
         <PaginationArrow
           direction="left"
           href={createPageURL(currentPage - 1)}
@@ -59,15 +59,17 @@ function PaginationNumber({
   href: string;
   isActive: boolean;
 }) {
+  const isEllipsis = page === '...';
   const className = clsx(
     'flex h-10 w-10 m-1 items-center justify-center text-sm rounded-full',
     {
       'z-10 pb-1 underline border-blue-600 font-bold text-yellow-700 bg-slate-300': isActive,
-      'hover:pb-1 hover:underline hover:shadow': !isActive
+      'hover:pb-1 hover:underline hover:shadow': !isActive && !isEllipsis,
+      'z-10 pb-1': isEllipsis
     },
   );
 
-  return isActive ? (
+  return isActive || isEllipsis ? (
     <div className={className}>{page}</div>
   ) : (
     <Link href={href} className={className}>
@@ -86,7 +88,7 @@ function PaginationArrow({
   isDisabled?: boolean;
 }) {
   const className = clsx(
-    "flex h-10 w-10 items-center justify-center rounded-full border p-1",
+    "flex h-8 w-8 items-center justify-center rounded-full border p-1",
     {
       'pointer-events-none text-gray-400 border-gray-400': isDisabled,
       'hover:border-yellow-700 hover:text-yellow-700': !isDisabled,
@@ -98,9 +100,9 @@ function PaginationArrow({
 
   const icon =
     direction === 'left' ? (
-      <GiArrowWings className="w-3/4 h-3/4 -rotate-135" />
+      <GiArrowWings className="w-8 h-8 -rotate-135" />
     ) : (
-      <GiArrowWings className="w-3/4 h-3/4 rotate-45" />
+      <GiArrowWings className="w-8 h-8 rotate-45" />
     );
 
   return isDisabled ? (
@@ -113,34 +115,23 @@ function PaginationArrow({
 }
 
 export const generatePagination = (currentPage: number, totalPages: number) => {
-    // If the total number of pages is 7 or less,
+    // If the total number of pages is 3 or less,
     // display all pages without any ellipsis.
-    if (totalPages <= 7) {
+    if (totalPages <= 3) {
       return Array.from({ length: totalPages }, (_, i) => i + 1);
     }
   
-    // If the current page is among the first 3 pages,
-    // show the first 3, an ellipsis, and the last 2 pages.
-    if (currentPage <= 3) {
-      return [1, 2, 3, '...', totalPages - 1, totalPages];
-    }
-  
-    // If the current page is among the last 3 pages,
-    // show the first 2, an ellipsis, and the last 3 pages.
-    if (currentPage >= totalPages - 2) {
-      return [1, 2, '...', totalPages - 2, totalPages - 1, totalPages];
+    // If the current page is the first or last page,
+    // show the first page, an ellipsis, and the last page.
+    if (currentPage === 1 || currentPage === totalPages) {
+      return [1, '...', totalPages];
     }
   
     // If the current page is somewhere in the middle,
-    // show the first page, an ellipsis, the current page and its neighbors,
-    // another ellipsis, and the last page.
+    // show the first page, the current page and the last page.
     return [
       1,
-      '...',
-      currentPage - 1,
       currentPage,
-      currentPage + 1,
-      '...',
       totalPages,
     ];
   };

@@ -20,7 +20,7 @@ export type CardEntry = {
 export const EmptyCard:Card = {
     id: 0,
     name: "Empty",
-    image_url: "/default_hero.png",
+    image_url: "/default_Character.png",
     type: 'Character',
     faction: "Heroes",
     cost: 0,
