@@ -28,6 +28,13 @@ export const EmptyCard:Card = {
     abilities: []
 }
 
+export type User = {
+    id: string,
+    email: string,
+    password: string,
+    player_id: string
+}
+
 export type Player = {
     id: string,
     name: string,

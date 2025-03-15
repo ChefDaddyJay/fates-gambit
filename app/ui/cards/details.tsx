@@ -10,7 +10,6 @@ export default function CardDetails(
     return (
         <div className="flex flex-col items-center 
             px-auto w-1/2 sm:w-80">
-                Words
             {/* Image */}
             <div className="flex flex-col justify-center items-center">
                 <Image src={card.image_url} alt="Card Image"  width={200} height={200} 

@@ -5,6 +5,7 @@ const sql = postgres(process.env.POSTGRES_URL!, {ssl: 'require'});
 const ITEMS_PER_PAGE = 20;
 
 export async function fetchAllCards() {
+    //await new Promise((resolve) => setTimeout(resolve, 3000));
     try {
         const data = await sql<Card[]>`SELECT * FROM fates_gambit.cards`;
         return data;
@@ -15,6 +16,7 @@ export async function fetchAllCards() {
 }
 
 export async function fetchCardById(id: number) {
+    //await new Promise((resolve) => setTimeout(resolve, 3000));
     try {
         const data = await sql<Card[]>`
             SELECT * 
@@ -30,6 +32,7 @@ export async function fetchCardById(id: number) {
 
 export async function fetchCardsByName(name: string, currentPage: number) {
     const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     try {
         const data = await sql<Card[]>`
             SELECT * 
@@ -45,6 +48,7 @@ export async function fetchCardsByName(name: string, currentPage: number) {
 }
 
 export async function fetchCardsPages(name: string) {
+    //await new Promise((resolve) => setTimeout(resolve, 3000));
     try {
         const data = await sql`
             SELECT COUNT(*)

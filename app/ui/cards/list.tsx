@@ -31,7 +31,7 @@ export default function CardList(
                 <div className={`w-full h-10 mt-1 mx-2 p-1 rounded-md text-slate-50
                     flex content-start justify-start
                     ${(currentCard === card.id)? "bg-orange-800" : "bg-yellow-900"}
-                    sm:w-16 sm:h-28 sm:flex-col sm:items-center
+                    sm:w-20 sm:h-28 sm:flex-col sm:items-center
                     hover:text-yellow-100 hover:shadow-xl hover:cursor-pointer`}
                     onClick={() => {
                         handleClick(card.id);

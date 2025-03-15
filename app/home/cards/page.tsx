@@ -7,7 +7,7 @@ import { EmptyCard } from "@/app/lib/definitions";
 import Search from "@/app/ui/search";
 import Pagination from "@/app/ui/pagination";
 import { Suspense } from "react";
-import { CardListSkeleton } from "../ui/skeletons";
+import { CardListSkeleton } from "../../ui/skeletons";
 
 export default async function StorePage(props: {
     searchParams?: Promise<{

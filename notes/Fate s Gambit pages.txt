@@ -3,7 +3,7 @@ Fate's Gambit pages
 - Welcome/Landing page
 - sign in
 - sign up
-- dashboard
+- home
 - card collection
 - deck building
 - trading

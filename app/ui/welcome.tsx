@@ -4,7 +4,7 @@ export default function WelcomeOptions() {
     return (
         <div className="flex justify-center">
             <Clickable href="/users/sign-in" text="Sign In" />
-            <Clickable href="/sign-up" text="Sign Up" />
+            <Clickable href="/users/sign-up" text="Sign Up" />
         </div>
     );
 }

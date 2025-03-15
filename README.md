@@ -1,13 +1,14 @@
 # Project status
 
-03/09/2025 - / Shows a welcome page with sign in and sign up options. Neither have
-                been implemented as of yet.
-            /cards displays the full list of card in the database and allows the
-                user to search the list and select individual cards to view their
-                details.
-            /cards/create allows for the creation of new cards, which are entered
-                directly into the database.
-            All others are dummy pages for now
+### 03/09/2025
+- / Shows a welcome page with sign in and sign up options. Neither have
+    been implemented as of yet.
+- /cards displays the full list of card in the database and allows the
+    user to search the list and select individual cards to view their
+    details.
+- /cards/create allows for the creation of new cards, which are entered
+    directly into the database.
+- All others are dummy pages for now
 
 # **FATE'S GAMBIT**
 
