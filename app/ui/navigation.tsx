@@ -10,7 +10,7 @@ export function Navbar() {
             border-b-2 border-yellow-700 shadow-2xl
         `}>
             <NavLink href="/home">Home</NavLink>
-            <NavLink href="/home/collection">Collection</NavLink>
+            <NavLink href="/home/cards/collection">Collection</NavLink>
             <NavLink href="/home/cards">Shop</NavLink>
             <NavLink href="/home/cards/trade">Trade</NavLink>
             <NavLink href="/home/cards/create">Create</NavLink>

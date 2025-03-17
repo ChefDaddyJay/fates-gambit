@@ -77,3 +77,15 @@ export const Factions: {
         text: "text-purple-700"
     }
 };
+
+export const CardTypes = {
+    Character: {
+        defaultImage: '/default_Character.png'
+    },
+    Event: {
+        defaultImage: '/default_Event.png'
+    },
+    Effect: {
+        defaultImage: '/default_Effect.png'
+    }
+};
