@@ -5,6 +5,7 @@ import { z } from "zod";
 import postgres from "postgres";
 import type { User } from "./app/lib/definitions";
 import bcrypt from "bcryptjs";
+import { Pool } from "@neondatabase/serverless";
 
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
@@ -33,7 +34,7 @@ export const { auth, signIn, signOut } = NextAuth({
                     const user = await getUser(email);
                     if(!user) return null;
                     const passwordsMatch = await bcrypt.compare(password, user.password);
-
+                    
                     if(passwordsMatch) return user;
                 }
 
@@ -42,4 +43,3 @@ export const { auth, signIn, signOut } = NextAuth({
         })
     ]
 });
-

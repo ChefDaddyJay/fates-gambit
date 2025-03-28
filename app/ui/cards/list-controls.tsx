@@ -2,7 +2,7 @@
 
 import Search from "@/app/ui/search";
 import { useState } from "react";
-import { GiFunnel } from "react-icons/gi";
+import { GiToggles } from "react-icons/gi";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { Factions, CardTypes } from "@/app/lib/definitions";
 
@@ -30,7 +30,8 @@ export function FiltersMenu(
     const { replace } = useRouter();
     const [activeFilters, setFilters] = useState({
         faction: searchParams.get('factions'),
-        type: searchParams.get('types')
+        type: searchParams.get('types'),
+        other: searchParams.get('other')
     });
 
     const handleChange = (filterType: string, term: string) => {
@@ -38,7 +39,6 @@ export function FiltersMenu(
         const filters = {...activeFilters};
         type FilterKey = keyof typeof filters;
         
-        params.set('page', '1');
         if(term.length > 0) params.set(filterType.toLowerCase(), term);
         else params.delete(filterType.toLowerCase());
         filters[filterType.toLocaleLowerCase() as FilterKey] 
@@ -69,6 +69,53 @@ export function FiltersMenu(
                 active={activeFilters.type?.split(',') || []}
                 onChange={handleChange}
             />
+
+            <OwnershipFilters
+                active={activeFilters.other?.split(',') || []}
+                onChange={handleChange}
+            />
+        </div>
+    );
+}
+
+export function OwnershipFilters(
+    {active, onChange}:
+    {
+        active: string[],
+        onChange: (type: string, value: string) => void
+    }
+) {
+    const unfiltered = active.length === 0;
+    const handleChange = (term: string, set: boolean) => {
+        if(set || unfiltered) {
+            if(!active.includes(term)) 
+                active.splice(active.length, 0, term);
+        } else {
+            if(active.includes("Owned")) 
+                active = []
+            else if(active.includes(term)) 
+                active.splice(active.indexOf(term), 1);
+        }
+        onChange('other', active.toString());
+    }
+    const options = unfiltered 
+        ? ["Owned", "Unowned"]
+        : active.includes("Owned")
+            ? ["Owned", "Multiples"]
+            : ["Unowned"]
+
+    return (
+        <div className="flex justify-between">
+            <span className="flex-grow">{'Other'}</span>
+            <div className="flex flex-col w-2/3 pl-2
+                justify-start border-l border-black">
+                {options.map((o) => <FilterOption
+                    key={`${'other'}-${o}`}
+                    value={o}
+                    active={unfiltered || active.includes(o)}
+                    onChange={handleChange}
+                />)}
+            </div>
         </div>
     );
 }
@@ -144,7 +191,7 @@ export function FiltersButton(
 ) {
     return (
         <button onClick={onClick}>
-            <GiFunnel className={`h-8 w-8 ml-2 p-1 mb-1
+            <GiToggles className={`h-8 w-8 ml-2 p-1 mb-1
                 ${active ? 'bg-stone-300' : 'bg-strone-200'}
                 text-gray-800 border rounded border-black
                 hover:shadow hover:bg-stone-300 

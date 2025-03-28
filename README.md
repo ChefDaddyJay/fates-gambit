@@ -1,5 +1,15 @@
 # Project status
 
+### 03/28/2025
+- Protected pages have been moved inside /home. (i.e. /cards is now 
+    /home/cards)
+- /home/cards interface displays cards and allows filtering by Type, 
+    Faction, and ownership and provides options for buying, selling, 
+    and trading cards (pending feature implementation)
+    - user is able to create sales listings for owned cards
+- /home/market displays all listings on the sales table, but filtering
+    still needs to be implemented
+
 ### 03/09/2025
 - / Shows a welcome page with sign in and sign up options. Neither have
     been implemented as of yet.

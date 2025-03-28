@@ -30,30 +30,40 @@ export const EmptyCard:Card = {
 
 export type User = {
     id: string,
+    name: string,
     email: string,
-    password: string,
-    player_id: string
+    password: string
 }
 
-export type Player = {
+export type SafeUser = {
     id: string,
     name: string,
-    collection: Collection,
-    decks: {
-        name: string,
-        cards: Collection
-    }[]
+    email: string
 }
 
-export type Collection = {
+export const EmptyUser:User = {
+    id: "",
+    name: "",
+    email: "",
+    password: ""
+}
+
+export type SaleListing = {
     id: string,
-    player_id: string,
-    cards: [
-        {
-            card_id: string,
-            copies: number
-        }
-    ]
+    user_id: string,
+    card_id: number,
+    copies: number,
+    price: number,
+    date: Date
+}
+
+export type RichSaleListing = {
+    id: string,
+    user: SafeUser,
+    card: Card,
+    copies: number,
+    price: number,
+    date: Date
 }
 
 export const Factions: {
